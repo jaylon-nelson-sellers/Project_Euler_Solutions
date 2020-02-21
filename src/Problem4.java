@@ -18,6 +18,10 @@
  */
 public class Problem4 {
 
+    /**
+     * main that starts function and executes sub methods,
+     * @param args arguments being passed in.
+     */
     public static void main(String[] args) {
         int[] temp = (palindromeFinder(1000));
         System.out.println("Value 1:" + temp[0] + "Value 2:" + temp[1]);
@@ -25,7 +29,15 @@ public class Problem4 {
         System.out.println("Largest Palindrome is: " + palindrome);
     }
 
-    public static int[] palindromeFinder(int max) {
+    /**
+     * This method uses brute force to check each value between 1-999 to find
+     * the largest palindrome number.
+     * Uses a nested for loop to represent both numbers and returns the largest
+     * pair.
+     * @param max max number to be found.
+     * @return an int array that holds two values.
+     */
+    private static int[] palindromeFinder(int max) {
         int[] maxValue = new int[2];
         maxValue[0] = 0;
         maxValue[1] = 0;
@@ -44,14 +56,22 @@ public class Problem4 {
         return maxValue;
     }
 
-    public static boolean palindromeChecker(String toBeChecked) {
+    /**
+     * This method takes in a String and using the charAt method, checks if a
+     * value is a palindrome.
+     * I could have used recursion but I didn't want to worry about that this
+     * early on. Instead it uses for loops that iterate through the front and
+     * end.
+     * @param toBeChecked String to be checked by the method
+     * @return a boolean representing whether or not the value is a palindrome.
+     */
+    private static boolean palindromeChecker(String toBeChecked) {
         int length = toBeChecked.length();
         if (length % 2 == 0) {
             int end = length - 1;
             for (int i = 0; i < length; i++) {
                 if (toBeChecked.charAt(i) == toBeChecked.charAt(end)) {
                     end--;
-                    continue;
                 } else {
                     return false;
                 }
@@ -70,7 +90,6 @@ public class Problem4 {
 
                 if (toBeChecked.charAt(i) == toBeChecked.charAt(end)) {
                     end--;
-                    continue;
                 } else {
                     return false;
                 }

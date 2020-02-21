@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 
  Brainstorming: I think another brute force attempt will work. Using a nested
  for loop for all values.
+
+ Result:
  First Attempt got a really large number, I used the debugger to test 2520 and
  it got the correct answer (returning positive for each value) but the given
  number is massive at 2.32792561E8
@@ -18,10 +20,14 @@ import java.math.BigDecimal;
  * rounded it down, and the answer was correct. Not really happy with it because
  * I had to intervene with the answer and didn't get a direct answer.
  * difficulty: 2/10
- * first attemp submition
+ * first attempt
  */
 public class Problem5 {
 
+    /**
+     * Main method that finds the value. Executes sub methods.
+     * @param args arguments being passed in.
+     */
     public static void main(String[] args) {
         //Got a weird number? Rounded it down
         //System.out.println(findDivisible());
@@ -33,7 +39,14 @@ public class Problem5 {
         }
     }
 
-    public static double findDivisible() {
+    /**
+     * This method uses a nested loop to iterate through as many values needed
+     * to find the correct value. Uses a boolean to continue iterating until
+     * boolean condition is not meet (Value found),then returns that value.
+     * Inner for loop iterates through 1 to 20 to test each value.
+     * @return a double representing the found value.
+     */
+    private static double findDivisible() {
         boolean testCondition = false;
         double i = 1;
         while (!testCondition) {
